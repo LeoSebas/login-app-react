@@ -1,0 +1,16 @@
+.LoginForm {
+  width: 839px;
+  height: 577px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 70px 88px;
+}
+
+.LoginFormDescr {
+  font-family: "Inter" sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  text-align: center;
+  color: #666666;
+}
