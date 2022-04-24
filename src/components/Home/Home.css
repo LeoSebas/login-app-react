@@ -1,0 +1,46 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.HomeWelcomeContainer { 
+display:flex;
+  flex-direction: column;
+  justify-content: center;
+  background: no-repeat url("../../assets/img/bootcamp.jpg");
+  background-size: contain;
+  background-position: top;
+  width: 800px;
+  height: 600px;
+}
+
+.ImgContainer {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 445px;
+  height: 204px;
+}
+.ButtonSignOut {
+  width: 100%;
+}
+
+.ImgSuccess {
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    width: 40%;
+    height: 40%;
+  }
+
+  to {
+    width: 50%;
+    height: 50%;
+  }
+}

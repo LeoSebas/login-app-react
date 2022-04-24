@@ -1,17 +1,31 @@
 import { useEffect, useState } from "react";
 import "./LoginForm.css";
 
-export function LoginForm() {
+export function LoginForm({ userChanged }) {
+  /// Para el inicio de sesión se deben utilizar:
+  /// Email:      test@staxfood.com
+  /// Password:   staxfood
+
+  const emailOk = "test@staxfood.com";
+  const passOk = "staxfood";
+
   //State para el email
   const [email, setEmail] = useState("");
 
   //State para la contraseña y para mostrar/ocultar
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  //State para el tipo de usuario y comprobar su selección
   const [type, setType] = useState("");
+  const [typeSelected, setTypeSelected] = useState("pure");
+
+  //State flag para mostrar/ocultar error en credenciales
+  const [showError, serShowError] = useState(false);
 
   function handleType(event) {
     setType(event.target.value);
+    event.target.value === ""? setTypeSelected("not_selected") : setTypeSelected("selected");
   }
   useEffect(() => console.log("Tipo cambiado: " + type), [type]);
 
@@ -25,17 +39,46 @@ export function LoginForm() {
   }
   useEffect(() => console.log("Password cambiada: " + password), [password]);
 
+  //Toggle flag para mostrar/ocultar la contraseña
   function ToggleShowPassword() {
     setShowPassword(!showPassword);
   }
 
-  function handleSignIn() {}
+  function handleError() {
+    serShowError(true);
+  }
+
+  function handleTypeNotSelected() {
+    setTypeSelected("not_selected");
+  }
+
+  function handleSignIn() {
+    // Primero verifica que se haya seleccionado un type
+    (typeSelected === "pure" || typeSelected === "not_selected")
+      ? handleTypeNotSelected()
+      : //Luego comprueba las credenciales
+      (email === emailOk && password === passOk
+      ? userChanged({ email: email, type: type })
+      : handleError());
+  }
 
   return (
     <div className="LoginForm">
       <p className="LoginFormDescr">
         Please fill in your unique admin login details below
       </p>
+      <div className={showError ? "ErrorContainer" : "ErrorContainerOff"}>
+        <p className="ErrorText">Credenciales incorrectas</p>
+      </div>
+      <div
+        className={
+          typeSelected === "not_selected"
+            ? "ErrorContainer"
+            : "ErrorContainerOff"
+        }
+      >
+        <p className="ErrorText">Debe seleccionar un tipo</p>
+      </div>
       <div className="InputTypeContainer">
         <label htmlFor="__type_key__" className="Label">
           Type:
@@ -48,6 +91,7 @@ export function LoginForm() {
           className="InputType"
           value={type}
         >
+          <option value="">Seleccionar...</option>
           <option value="Profesor">Profesor</option>
           <option value="Alumno">Alumno</option>
         </select>

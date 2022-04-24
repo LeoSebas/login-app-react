@@ -7,10 +7,16 @@ import "./App.css";
 function App() {
 
   const [theme, setTheme] = useState('AppLight')
-  const [user, setUser] = useState(null)
+  // Valor inicial de User en el localStorage
+  const initialUser = window.localStorage.getItem('user')
+
+  const [user, setUser] = useState(initialUser)
 
   function userChanged(user) {
     setUser(user);
+    user 
+    ? window.localStorage.setItem('user',JSON.stringify(user))
+    : window.localStorage.removeItem('user')
     console.log("Cambiando usuario a: "+ {user})
   }
 
@@ -20,7 +26,7 @@ function App() {
   }
 
   return <div className={theme}>
-    {user ? <Home /> : <Login />}
+    {user ? <Home userChanged={userChanged} /> : <Login userChanged={userChanged} />}
   </div>;
 }
 
