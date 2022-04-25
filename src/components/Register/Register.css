@@ -1,0 +1,10 @@
+.InpunNameRow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.InputNameContainer{
+    flex:1;
+    position: relative;
+}
