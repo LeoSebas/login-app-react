@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./LoginForm.css";
 
-export function LoginForm({ userChanged }) {
+export function LoginForm({ userChanged, handleRegister }) {
   /// Para el inicio de sesión se deben utilizar:
   /// Email:      test@staxfood.com
   /// Password:   staxfood
@@ -143,7 +143,7 @@ export function LoginForm({ userChanged }) {
         <a href="#top" className="Label">
           Forgot password?
         </a>
-        <a href="#top" className="Label">
+        <a href="#top" className="Label" onClick={handleRegister}>
           Register!
         </a>
       </div>

@@ -4,6 +4,14 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+ 
+}
+.BackgroundContainer{
+  background-color: white;
+  width: 800px;
+  height: 600px;
+  border: 10px solid #202020 ;
+  border-radius: 15px;
 }
 
 .HomeWelcomeContainer { 
@@ -15,6 +23,30 @@ display:flex;
   background-position: top;
   width: 800px;
   height: 600px;
+ 
+}
+
+.UserInformationContainer {
+  margin-top: 60px;
+  align-self: center;
+  font-family: "Inter" sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.UserInformationContainer h5 {
+  margin: 5px;
+}
+#UITitle {
+  text-align: center;
+  font-family: "Inter" sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-weight: bold;
+  font-size: 32px;
+  line-height:48px;
 }
 
 .ImgContainer {
@@ -26,7 +58,22 @@ display:flex;
   height: 204px;
 }
 .ButtonSignOut {
-  width: 100%;
+  align-self: center;
+  width: 50%;
+  background: #2148c0;
+  border-radius: 10px;
+  margin-top: 2%;
+}
+
+.SignOutText{
+  font-family: "Inter" sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ffffff;
+  margin: 0%;
+  padding: 5px;
 }
 
 .ImgSuccess {
