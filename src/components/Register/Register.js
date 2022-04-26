@@ -43,12 +43,12 @@ export function RegisterForm() {
         Please fill in your information details below:
       </p>
       <div className="InputNameRow">
-        <div className="InputNameContainer">
+        <div className="InputRegisterContainer">
           <label htmlFor="__name_key__" name="name" className="Label">
             Name:
           </label>
           <input
-            className="InputName"
+            className="InputRegister"
             name="name"
             id="__name_key__"
             type="name"
@@ -56,12 +56,12 @@ export function RegisterForm() {
             value={name}
           ></input>
         </div>
-        <div className="InputNameContainer">
+        <div className="InputRegisterContainer">
           <label htmlFor="__lastName_key__" name="last_name" className="Label">
             Last Name:
           </label>
           <input
-            className="InputName"
+            className="InputRegister"
             name="last_name"
             id="__lastName_key__"
             type="name"
@@ -70,12 +70,12 @@ export function RegisterForm() {
           ></input>
         </div>
       </div>
-      <div className="InputEmailContainer">
+      <div className="InputRegisterContainer">
         <label htmlFor="__email_key__" className="Label">
           Email:
         </label>
         <input
-          className="Input"
+          className="InputRegister"
           name="email"
           id="__email_key"
           type="email"
@@ -83,13 +83,13 @@ export function RegisterForm() {
           value={email}
         ></input>
       </div>
-      <div className="InputPasswordContainer">
+      <div className="InputRegisterContainer">
         <label htmlFor="__password_key__" className="Label">
           Password:
         </label>
         <div className="InputPasswordRow">
           <input
-            className="InputPassword"
+            className="InputRegister"
             name="password"
             id="__password_key__"
             type={showPassword ? "text" : "password"}
@@ -110,13 +110,13 @@ export function RegisterForm() {
           </button>
         </div>
       </div>
-      <div className="InputPasswordContainer">
+      <div className="InputRegisterContainer">
         <label htmlFor="__repeatPass_key__" className="Label">
           Password:
         </label>
         <div className="InputPasswordRow">
           <input
-            className="InputPassword"
+            className="InputRegister"
             name="repeatPass"
             id="__repeatPass_key__"
             type={showRepeatPass ? "text" : "password"}
@@ -124,7 +124,7 @@ export function RegisterForm() {
             value={repeatPass}
           ></input>
           <button
-            className="ButtonShowRepeatPass"
+            className="ButtonShowPassword"
             onClick={toggleShowRepeatPass}
           >
             <img
@@ -140,6 +140,9 @@ export function RegisterForm() {
           </button>
         </div>
       </div>
+      <button className="ButtonRegisterSubmit" >
+        Sign up
+      </button>
     </div>
   );
 }
