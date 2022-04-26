@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import { Login } from "./components/Login/Login.js"
+import { Home } from "./components/Home/Home.js"
+
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [theme, setTheme] = useState('AppLight')
+  // Valor inicial de User en el localStorage
+  const initialUser = window.localStorage.getItem('user')
+
+  const [user, setUser] = useState(initialUser)
+
+  function userChanged(user) {
+    setUser(user);
+    user 
+    ? window.localStorage.setItem('user',JSON.stringify(user))
+    : window.localStorage.removeItem('user')
+    console.log("Cambiando usuario a: "+ {user})
+  }
+
+  function themeToggle(){
+    setTheme(theme === "AppLight" ? "AppDark" : "AppLight")
+    console.log("Cambiando tema a: " + {theme})
+  }
+
+  return <div className={theme}>
+    {user ? <Home userChanged={userChanged} /> : <Login userChanged={userChanged} />}
+  </div>;
 }
 
 export default App;
